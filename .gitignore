@@ -1,0 +1,52 @@
+# Python 虚拟环境
+.venv/
+venv/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE 与系统文件
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ETL 运行锁和日志
+/.etl.lock
+/logs/
+*.log
+
+# ETL 生成数据
+/data/clean/
+/data/dirty/
+/dirty/
+/warehouse/
+/output/
+/report/
+/SRC/data/
+
+# 大型原始数据
+/data/raw/*.csv
+
+# 自动生成的报告
+/data/report/
+/data/metadata/*.csv
+*.xlsx
+
+# 临时文件
+*.tmp
+*.bak
+*~
+
+# Spark 生成的数据
+warehouse_spark/
+
+# Spark 运行文件
+.spark_warehouse.lock
+
+# 参考仓库（不纳入自己仓库）
+reference/
