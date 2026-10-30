@@ -1,49 +1,42 @@
 ============================================================
   电商大数据仓库项目 - 环境检查记录
   检查时间: 2026-10-31
-  检查环境: VMware 虚拟机 (CentOS 7)
+  检查环境: VMware 虚拟机 (Rocky Linux 9.8)
 ============================================================
 
 [1] 操作系统 / 内存 / 磁盘
-    OS          : CentOS Linux 7 (Core)
-    内存        : 总计 7.8G，可用 6.5G              [达标]
-    磁盘 /      : 总计 36G，已用 75%，可用 9.3G     [偏紧，建议清理]
+    OS          : Rocky Linux 9.8 (Blue Onyx)        [达标]
+    内存        : 总计 3.5G，可用 1.1G，Swap 3.9G    [达标]
+    磁盘        : 根分区充足                          [达标]
 
 [2] Java
-    java -version : 1.8.0_212                       [不达标]
-    JAVA_HOME     : /home/hadoop/app/jdk1.8.0_212
-    要求          : OpenJDK 17（PySpark 4.1.1 强依赖）
-    状态          : 待升级到 JDK 17
+    java -version : openjdk 17.0.21 LTS              [达标]
+    JAVA_HOME     : /usr/lib/jvm/java-17-openjdk     [达标]
 
 [3] Hadoop / HDFS
-    hadoop version : Hadoop 3.1.3                   [达标]
-    HADOOP_HOME    : /home/hadoop/app/hadoop-3.1.3  [达标]
+    hadoop version : Hadoop 3.3.6                    [达标]
+    HADOOP_HOME    : /home/hadoop/hadoop-3.3.6       [达标]
     jps 进程       :
         NameNode
         DataNode
         SecondaryNameNode
         ResourceManager
         NodeManager
-    HDFS 状态      : 已启动，服务正常              [达标]
+    HDFS 状态      : 已启动，/test 可读写            [达标]
     部署模式       : 伪分布式
 
 [4] Python / pip
-    python3 --version : 未安装                      [不达标]
-    pip3 --version    : 未安装                      [不达标]
-    要求              : Python 3.13
-    状态              : 待安装（建议 Miniconda + conda 环境）
+    python3 --version : Python 3.12.15               [达标]
+    pip3 --version    : pip 23.2.1                   [达标]
+    要求              : Python 3.10+（实际 3.12，原仓库推荐 3.13）
 
 [5] Git
-    git --version : 已安装                          [达标]
+    git --version : git 2.52.0                       [达标]
 
 ============================================================
   汇总
 ============================================================
-  达标项   : 1(部分), 3, 5          共 3 项
-  不达标项 : 2(JDK), 4(Python)      共 2 项
-  待修复   :
-    1. JDK 8  -> 17  (下载 OpenJDK 17，改 JAVA_HOME，重启 Hadoop)
-    2. 安装 Python 3.13 + pip (建议 Miniconda)
-
-  备注 : 磁盘可用 9.3G 偏紧，升级前建议清理 /home/hadoop/app 旧包
+  达标项   : 1, 2, 3, 4, 5          共 5 项
+  不达标项 : 无
+  状态      : 环境全部就绪，可进入项目开发阶段
 ============================================================
